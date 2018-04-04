@@ -1,4 +1,4 @@
-package com.magic.com.magic.exception;
+package com.magic.exception;
 
 /**
  * @author 刘俊重
