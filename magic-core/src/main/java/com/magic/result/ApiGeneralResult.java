@@ -19,6 +19,9 @@ public class ApiGeneralResult<T> {
         this.code = code;
     }
 
+    public ApiGeneralResult(T value) {
+        this.value = value;
+    }
     public ApiGeneralResult(int code, T value, ReturnMessage message) {
         this.code = code;
         this.value = value;
