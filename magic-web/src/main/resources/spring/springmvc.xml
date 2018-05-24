@@ -14,10 +14,10 @@
     <!--<mvc:interceptors>-->
 		<!--<mvc:interceptor>-->
 			<!--<mvc:mapping path="/**"/>-->
-			<!--<mvc:exclude-mapping path="/login/**"/>  -->
-			<!--<bean class="com.ynet.scm.interceptor.SessionInterceptor" />-->
+			<!--&lt;!&ndash;<mvc:exclude-mapping path="/login/**"/>&ndash;&gt;-->
+			<!--<bean class="com.magic.interceptor.SessionInterceptor" />-->
 		<!--</mvc:interceptor>-->
-	<!--</mvc:interceptors>  -->
+	<!--</mvc:interceptors>-->
 	<!-- 配置注解驱动 -->
 	<mvc:annotation-driven>
 		<mvc:message-converters register-defaults="true">

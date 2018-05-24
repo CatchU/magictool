@@ -2,50 +2,36 @@ package com.magic.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.magic.annotation.LogParam;
-import com.magic.annotation.NoLogin;
 import com.magic.constant.ResultCode;
 import com.magic.exception.BusinessException;
 import com.magic.request.user.UserRequest;
-import com.magic.util.ShiroUtils;
 import com.magic.result.ApiGeneralResult;
-import org.apache.shiro.authc.*;
-import org.apache.shiro.crypto.hash.Sha256Hash;
+import com.magic.util.ShiroUtils;
+import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
 
 import java.io.IOException;
 
 /**
  * @author 刘俊重
- * @Description 登录控制器
- * @date 12:22
+ * @Description
+ * @date 18:04
  */
-@RestController
-public class LoginController {
+public class TestController {
 
     private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
 
     /**
-     * 登录
+     * 测试
      */
-    @NoLogin
-    @RequestMapping(value = "/user/login", method = RequestMethod.POST ,name="注册")
+    @RequestMapping(value = "/user/test", method = RequestMethod.POST ,name="测试")
     public ApiGeneralResult<Boolean> login(@LogParam @RequestBody UserRequest userRequest)throws IOException {
         logger.info("user info:{}", JSONObject.toJSONString(userRequest));
-        try{
-            Subject subject = ShiroUtils.getSubject();
-            UsernamePasswordToken token = new UsernamePasswordToken(
-                    userRequest.getUsername(), userRequest.getPassword());
-            //主体提交至认证器进行认证
-            subject.login(token);
-        }catch (Exception e) {
-            throw new BusinessException(ResultCode.USERNAME_OR_PASSWORD_ERROR);
-        }
         return new ApiGeneralResult<>(true);
     }
 }

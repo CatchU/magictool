@@ -14,7 +14,8 @@ public enum ResultCode {
     ILLEGAL_REQUEST(301, "非法的请求", "非法的请求，没有继承BaseRequest请求基类"),
     NO_DATA_PERMISSION(302, "无此数据权限", "无此数据权限"),
     NO_PERMISSION(303, "无权限", "无权限"),
-    ILLEGAL_RESPONSE(304, "非法的响应", "非法的响应，不符合响应规范"),
+    ILLEGAL_RESPONSE(304, "非法的响应，不符合响应规范", "非法的响应，不符合响应规范"),
+    USERNAME_OR_PASSWORD_ERROR(305, "用户名或密码错误", "用户名或密码错误"),
 
     PARAMETER_FORMAT_ERROR(400, "请求参数格式不正确", "请求参数格式不正确"),
     PARAMETER_EMPTY(401, "参数 {0} 不能为空", "参数 {0} 不能为空"),
@@ -30,7 +31,7 @@ public enum ResultCode {
     ILLEGAL_SRC_PLATFORM_TOKEN(4, "非法来源平台token", "非法来源平台token"),
 
     // 业务模块返回码
-    // 商家后台
+    // 日志
     INSERT_LOG_ERROR(10001,"插入日志时出现异常","插入日志时出现异常"),
 
 

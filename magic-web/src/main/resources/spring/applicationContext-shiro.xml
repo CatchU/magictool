@@ -45,7 +45,9 @@
 			<value>
 				/login.html =anon
 				/sysLogin =anon
-				/** = anon
+				<!--sysPathMatchingFilter是上面定义过的过滤器-->
+				/** = sysPathMatchingFilter
+				<!--/** = anon-->
 			</value>
 		</property>
 	</bean>

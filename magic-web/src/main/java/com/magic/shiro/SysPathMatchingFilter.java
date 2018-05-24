@@ -10,6 +10,7 @@ import com.magic.util.R;
 import org.apache.shiro.web.filter.PathMatchingFilter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.web.method.HandlerMethod;
 
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
@@ -25,19 +26,19 @@ import java.io.PrintWriter;
 public class SysPathMatchingFilter extends PathMatchingFilter{
 
     private static final Logger logger = LoggerFactory.getLogger(SysPathMatchingFilter.class);
+
+    private final String LOGIN_URL="/user/login";
     @Override
     protected boolean onPreHandle(ServletRequest servletRequest,
          ServletResponse response, Object mappedValue) throws Exception {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
-        NoLogin noLogin = request.getMethod().getClass().getAnnotation(NoLogin.class);
-        logger.info("nologin:"+noLogin);
-        if(null !=request.getMethod().getClass().getAnnotation(NoLogin.class)){
-            logger.info("直接放行");
+        String requestURI = request.getRequestURI();
+        if (requestURI.endsWith(LOGIN_URL)) {
+            logger.info("LOGINURL 放行--->>>");
             return true;
         }
 
         //从缓存中获取用户的登录信息和他的功能菜单，判断有没有这个的操作权限
-        String requestURI = request.getRequestURI();
         //模拟从数据库取的功能url
         String mockUrl = "/user/login;/user/logout";
         if(!mockUrl.contains(requestURI)){
