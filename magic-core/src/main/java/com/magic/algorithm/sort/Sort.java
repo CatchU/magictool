@@ -65,4 +65,44 @@ public class Sort {
             }
         }
     }
+
+    /**
+     * 快速排序
+     * @param arr
+     */
+    public static void quickSort(int arr[]){
+        quickSortMethod(arr,0,arr.length-1);
+    }
+
+    private static void quickSortMethod(int arr[],int left,int right){
+        if(left<right){
+            int midIndex = partition(arr, left, right);
+            quickSortMethod(arr,left,midIndex-1);
+            quickSortMethod(arr,midIndex+1,right);
+        }
+    }
+
+    private static int partition(int arr[],int left,int right){
+        //i从左边遍历比base元素大的，j从末尾遍历比base元素小的，互相交换
+        int i = left;
+        int j = right;
+        //基准元素
+        int base = arr[left];
+        while(i<j){
+            while (i<j && arr[j]>base){
+                j--;
+            }
+            if(i<j){
+                arr[i++]=arr[j];
+            }
+            while(i<j && arr[i]<base){
+                i++;
+            }
+            if(i<j){
+                arr[j--]=arr[i];
+            }
+        }
+        arr[i] = base;
+        return i;
+    }
 }

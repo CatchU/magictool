@@ -35,4 +35,13 @@ public class SortTest {
             System.out.println(arr[i]);
         }
     }
+
+    @Test
+    public void quickSort(){
+        int arr[] = {1,4,8,3,7,5,6,2,9};
+        Sort.quickSort(arr);
+        for(int i=0;i<arr.length;i++){
+            System.out.println(arr[i]);
+        }
+    }
 }
