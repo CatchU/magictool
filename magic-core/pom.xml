@@ -40,6 +40,7 @@
             <artifactId>netty-all</artifactId>
             <version>4.1.5.Final</version>
         </dependency>
+<<<<<<< HEAD
         <dependency>
             <groupId>com.github.stuxuhai</groupId>
             <artifactId>jpinyin</artifactId>
@@ -49,6 +50,14 @@
             <groupId>com.vdurmont</groupId>
             <artifactId>emoji-java</artifactId>
             <version>4.0.0</version>
+=======
+        <!-- lombok 的jar -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.0</version>
+            <scope>provided</scope>
+>>>>>>> 14b09fa83e4f7011e80705599f6bcab4adbe6680
         </dependency>
     </dependencies>
 </project>
